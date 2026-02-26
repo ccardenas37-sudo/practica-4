@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Reto de Practica</h1>
+    <div id="resultado"></div>
+
+    <script>
+        let numero1 = 5;
+        let numero2 = -4;
+        function tradicional(n) {
+            if (n > 0 ) { // si el numero es mayor a cero
+                return "El numero es positivo <br>";
+            } else if (n < 0) {
+               return "El numero es negativo  <br>";
+            } else {
+                return "El numero es 0  <br>";
+            }
+        }
+         let texto = tradicional();
+         document.getElementById("resultado").innerHTML = texto;
+
+         const anonima = function() { //una funcion anonima se guarda en una variable
+             let suma = numero1 + numero2;
+             let resta = numero1 - numero2;
+
+             return "La suma es " + suma + "<br>" + "La resta es " + resta + "<br>";
+         }
+
+        const multiplicar = () => {
+            let resultadomultiplicar = numero1 * numero2;
+            return "La multiplicacion es " + resultadomultiplicar + "<br>" ;
+        }
+        function principal() {
+        let texto = "";
+        texto += tradicional(numero1);
+        texto += tradicional(numero2);
+        texto += anonima();
+        texto += multiplicar();
+
+        const divResultado = document.getElementById("resultado");
+        divResultado.innerHTML = texto;
+        divResultado.style.color = "LimeGreen";
+        }
+        principal();
+    </script>
+</body>
+</html>

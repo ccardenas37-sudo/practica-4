@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>reto</title>
+</head>
+<body>
+
+<h1>Reto de Funciones</h1>
+
+<button onclick="principal()">Mostrar Resultados</button>       
+
+<br><br>
+<div id="resultado"></div>
+
+<script>
+
+const numero1 = 8;       
+const numero2 = -3;
+
+
+// esta es la función tradicional
+function tipoNumero(numero){  // numero es un parametro
+    if (numero > 0){  // condicional
+        return "Es positivo";  // retorno
+    } else if (numero < 0){     // condicional
+        return "Es negativo";       // retorno
+    } else {
+        return "Es cero";
+    }
+}
+
+
+// Esta es la función anónima
+const sumaResta = function(a, b){  // a y b son parametros  
+    let suma = a + b;       // suma es una variable
+    let resta = a - b;
+    return "Suma: " + suma + "<br>Resta: " + resta;   // retorno   
+}   
+
+
+// Esta es la funcion arrow
+const multiplicacion = (a, b) => {  // a y b son parametros
+    return "Multiplicacion: " + (a * b);
+};
+
+
+// Función Principal 
+function principal(){   // no se pasan parametros
+
+    let texto = "";
+
+    texto += "Numero 1: " + numero1 + "<br>";   // no se pasan parametros
+    texto += "Numero 2: " + numero2 + "<br><br>";   // es el texto que se muestra
+
+    texto += "Tipo del Numero 1: " + tipoNumero(numero1) + "<br>"; 
+    texto += "Tipo del Numero 2: " + tipoNumero(numero2) + "<br><br>";
+
+    texto += sumaResta(numero1, numero2) + "<br><br>";
+
+    texto += multiplicacion(numero1, numero2);
+
+    document.getElementById("resultado").innerHTML = texto;   // se pasan parametros
+}
+
+</script>
+
+</body>
+</html>

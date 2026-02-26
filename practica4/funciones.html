@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ejemplos de funciones</title>
+</head>
+<body>
+
+<h1>EJ: Funciones</h1>
+<button onclick="ejecutar()">Mostrar Resultados</button>
+<br><br>
+<div id="resultado"></div>
+
+<script>
+const numero1 = 1; // estos son los numeros que tome como ejemplo
+const numero2 = 3;
+const numero3 = 5;
+
+function esPar(numero){ // funcion tradicional
+    if (numero % 2 === 0) {
+        return "El numero " + numero + " es Par";
+    } else {
+        return "El numero " + numero + " es Impar";
+    }
+}
+
+const factorial = function(numero){ // funcion anónima
+    let resultado = 1;
+    for (let i = 1; i <= numero; i++){
+        resultado *= i;
+    }
+    return resultado;
+}
+
+const cuadrado = (numero) => numero * numero; // funcion arrow
+
+function cuadradoTradicional(n){ // comparacion con funcion tradicional
+    return n * n;
+}
+
+const cuadradoAnonima = function(n){  // comparacion con funcion anónima
+    return n * n;
+}
+
+const cuadradoArrow = (n) => n * n;     // comparacion con funcion arrow
+
+//conbinacion de funciones
+const funcionArrow = (n) => n + 2;
+
+const funcionAnonima = function(n){
+    return funcionArrow(n) * 3;
+}
+
+function funcionTradicional(n){
+    return funcionAnonima(n) - 1;
+}
+
+function ejecutar(){
+
+    let texto = ""; // se crea un texto
+
+    texto += "RESULTADOS<br><br>";
+
+    texto += esPar(numero1) + "<br><br>";
+
+    texto += "Factorial de " + numero2 + ": " + factorial(numero2) + "<br><br>";
+
+    texto += "Cuadrado de " + numero3 + ": " + cuadrado(numero3) + "<br><br>";
+
+    texto += "Comparacion del cuadrado de " + numero3 + "<br>";
+    texto += "Tradicional -> " + cuadradoTradicional(numero3) + "<br>";
+    texto += "Anonima -> " + cuadradoAnonima(numero3) + "<br>";
+    texto += "Arrow -> " + cuadradoArrow(numero3) + "<br><br>";
+
+    texto += "Resultado combinacion con " + numero3 + " -> " + funcionTradicional(numero3);
+
+    document.getElementById("resultado").innerHTML = texto;
+}
+
+</script>
+
+</body>
+</html>
